@@ -29,6 +29,7 @@
 }
 
 .Todo-form {
+    position: relative;
     width: 350px;
 
     .todo-input {
@@ -40,15 +41,15 @@
         padding: 10px 4px;
         margin-bottom: 20px;
     }
-    
-    .addbtn{
+
+    .addbtn {
         cursor: pointer;
         position: absolute;
-        top: 120px;
-        right: 379px;
+        top: 10px;
+        right: 0px;
         color: #5b5b5b;
 
-        &:hover:before{
+        &:hover:before {
             color: #929292;
         }
     }
@@ -75,7 +76,21 @@
         margin-right: 10px;
     }
 
-    .delete{
+    .check{
         position: absolute;
+        display: none;
+    }
+
+    .delete {
+        //display: none;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        color: black;
+
+        &:hover:before {
+            display: inline-block;
+            color: #f3f3f3;
+        }
     }
 }

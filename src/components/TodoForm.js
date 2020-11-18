@@ -45,8 +45,7 @@ export default class TodoForm extends Component {
                         className="todo-input"
                         onChange={this.handleChange}
                     />
-                    <i className="icon-plus-solid addbtn" title="Add item"></i>
-                    <i className="icon-check-solid"></i>
+                    <i className="icon-plus-solid addbtn" title="Add item" onClick={this.handleSubmit}></i>
                     <Todolist items={this.state.items} />
                 </form>
             </div>

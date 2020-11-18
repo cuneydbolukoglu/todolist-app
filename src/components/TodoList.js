@@ -9,13 +9,21 @@ export default class Todolist extends Component {
         }
     }
 
+    deleteItem() {
+        console.log("deneme");
+    }
+
     render() {
         return (
             <div className="Todo-list">
                 <ul>
                     {
                         this.props.items.map((item, index) => <li key={index}>
-                            <span className="check-box"></span>{item}<span className="delete"><i className="icon-times-solid"></i></span>
+                            <span className="check-box"></span>{item}
+                            <span className="check">
+                                <i className="icon-check-solid"></i></span>
+                            <span className="delete" onClick={this.deleteItem}>
+                                <i className="icon-times-solid"></i></span>
                         </li>)
                     }
                 </ul>

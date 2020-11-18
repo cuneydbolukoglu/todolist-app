@@ -12,7 +12,7 @@ export default class Todo extends Component {
   render() {
     return (
       <div className="Todo">
-        <i class="icon-list"></i>
+        <i className="icon-list"></i>
         Todolist !
       </div>
     )
