@@ -66,6 +66,12 @@
         border-radius: 4px;
         margin: 10px 0px;
         display: flex;
+        word-break: break-word;
+
+        // &:hover{
+        //     background-color: rgb(26, 24, 24);
+        //     color: white;
+        // }
     }
 
     .check-box {
@@ -76,7 +82,7 @@
         margin-right: 10px;
     }
 
-    .check{
+    .check {
         position: absolute;
         display: none;
     }

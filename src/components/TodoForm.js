@@ -7,7 +7,7 @@ export default class TodoForm extends Component {
 
         this.state = {
             term: '',
-            items: []
+            items: [],
         }
     }
 
