@@ -7,7 +7,7 @@ export default class TodoForm extends Component {
 
         this.state = {
             term: '',
-            items: [],
+            data: []
         }
     }
 
@@ -18,20 +18,26 @@ export default class TodoForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
-        this.setState({
-            term: '',
-            items: [...this.state.items, this.state.term]
-        })
+        const todo = {
+            id: Date.now(),
+            name: this.state.term,
+            completed: false
+        }
+
+        var dataArray = this.setState.data
+        dataArray.push(todo);
+
+        console.log(todo);
     }
 
     componentDidUpdate() {
-        localStorage.setItem("items", JSON.stringify(this.state.items));
+        localStorage.setItem("todo", JSON.stringify(this.state.data));
     }
 
     componentWillMount() {
 
         this.setState({
-            items: JSON.parse(localStorage.getItem("items"))
+            data: JSON.parse(localStorage.getItem("todo"))
         })
     }
 
@@ -46,7 +52,7 @@ export default class TodoForm extends Component {
                         onChange={this.handleChange}
                     />
                     <i className="icon-plus-solid addbtn" title="Add item" onClick={this.handleSubmit}></i>
-                    <Todolist items={this.state.items} />
+                    <Todolist data={this.state.data} />
                 </form>
             </div>
         )
