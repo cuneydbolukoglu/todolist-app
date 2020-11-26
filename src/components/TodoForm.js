@@ -7,7 +7,11 @@ export default class TodoForm extends Component {
 
         this.state = {
             term: '',
-            data: []
+            data: [
+                { id: 0, name: 'Cuneyd', completed: true, },
+                { id: 1, name: 'React', completed: false, },
+                { id: 2, name: 'jQuery', completed: true, }
+            ]
         }
     }
 
@@ -24,10 +28,7 @@ export default class TodoForm extends Component {
             completed: false
         }
 
-        var dataArray = this.setState.data
-        dataArray.push(todo);
-
-        console.log(todo);
+        this.state.data.push(todo);
     }
 
     componentDidUpdate() {
