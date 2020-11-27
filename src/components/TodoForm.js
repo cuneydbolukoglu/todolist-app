@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Todolist from './TodoList';
 
+
 export default class TodoForm extends Component {
     constructor(props) {
         super(props)
@@ -8,9 +9,7 @@ export default class TodoForm extends Component {
         this.state = {
             term: '',
             data: [
-                { id: 0, name: 'Cuneyd', completed: true, },
-                { id: 1, name: 'React', completed: false, },
-                { id: 2, name: 'jQuery', completed: true, }
+                { id: 2857, name: 'React', completed: true, }
             ]
         }
     }
@@ -36,7 +35,6 @@ export default class TodoForm extends Component {
     }
 
     componentWillMount() {
-
         this.setState({
             data: JSON.parse(localStorage.getItem("todo"))
         })
