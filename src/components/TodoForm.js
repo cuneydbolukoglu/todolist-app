@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Todolist from './TodoList';
 
-
 export default class TodoForm extends Component {
     constructor(props) {
         super(props)
@@ -27,7 +26,9 @@ export default class TodoForm extends Component {
             completed: false
         }
 
-        this.state.data.push(todo);
+        this.setState(state => ({
+            data: state.data.concat(todo)
+        }));
     }
 
     componentDidUpdate() {
