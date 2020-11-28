@@ -51,12 +51,12 @@
 
         &:hover:before {
             color: #929292;
+            transition: 0.9s;
         }
     }
 }
 
 .Todo-list {
-    
     li {
         list-style: none;
         width: 100%;
@@ -67,11 +67,6 @@
         margin: 10px 0px;
         display: flex;
         word-break: break-word;
-
-        // &:hover{
-        //     background-color:black;
-        //     color: white;
-        // }
     }
 
     .check-box {
@@ -83,34 +78,44 @@
     }
 
     .check {
-        display: none;
         position: absolute;
         cursor: pointer;
         opacity: 0;
-
-        &:hover{
-            opacity: 1;
-        }
     }
 
-    .check-active{
+    .check-active {
         text-decoration: line-through;
+        background-color: black;
+        color: white;
+        transition: 1s;
+
+        .delete {
+            color: white !important;
+
+            &:hover {
+                color: white !important;
+            }
+        }
+
+        .check{
+            opacity: 1;
+        }
     }
 
     .delete {
         cursor: pointer;
         position: absolute;
         right: 0;
-        color: #535353;
+        color: black;
 
         &:hover:before {
-            display: block;
-            color: black;
+            color: #535353;
+            transition: 0.9s;
         }
     }
 }
 
-.info{
+.info {
     background: #f3f3f3;
     border: solid 1px #a9a6a6;
     border-radius: 4px;

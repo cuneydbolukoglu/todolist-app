@@ -9,23 +9,6 @@ export default class Todolist extends Component {
         }
     }
 
-    checkItem(id) {
-        console.log(id);
-
-        var list = document.querySelector('li');
-        console.log(list)
-    }
-
-    deleteItem(id) {
-        this.setState({
-            data: this.props.data.filter(item => item.id !== id)
-        })
-    }
-
-    componentDidUpdate() {
-        localStorage.setItem("todo", JSON.stringify(this.state.data));
-    }
-
     render() {
         return (
             <div className="Todo-list">
@@ -33,9 +16,9 @@ export default class Todolist extends Component {
                     {
                         this.props.data.map((item, index) => <li key={index}>
                             <span className="check-box"></span>{item.name}
-                            <span className="check" onClick={() => this.checkItem(item.id)}>
+                            <span className="check" onClick={this.props.checkItem.bind(this, item.id)}>
                                 <i className="icon-check-solid"></i></span>
-                            <i className="icon-times-solid delete" title="deleteItem" onClick={this.deleteItem.bind(this, item.id)} ></i>
+                            <i className="icon-times-solid delete" title="deleteItem" onClick={this.props.deleteItem.bind(this, item.id)} ></i>
                         </li>
                         )
                     }

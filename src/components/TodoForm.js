@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Todolist from './TodoList';
 
-
 export default class TodoForm extends Component {
     constructor(props) {
         super(props)
@@ -9,7 +8,7 @@ export default class TodoForm extends Component {
         this.state = {
             term: '',
             data: [
-                { id: 2857, name: 'React', completed: true, }
+                { id: 2857, name: 'React', completed: true }
             ]
         }
     }
@@ -27,14 +26,38 @@ export default class TodoForm extends Component {
             completed: false
         }
 
-        this.state.data.push(todo);
+        this.setState(state => ({
+            data: state.data.concat(todo)
+        }));
+    }
+
+    deleteItem(id) {
+        this.setState({
+            data: this.state.data.filter(item => item.id !== id)
+        })
+    }
+
+    checkItem(id) {
+        console.log(id);
+
+        var list = document.querySelector('li');
+
+        if(list.classList.add("check-active")){
+            list.classList.remove("check-active") 
+        } else{
+            list.classList.add("check-active")
+        }
+        
+        console.log(list);
     }
 
     componentDidUpdate() {
+        // localstorage sync update
         localStorage.setItem("todo", JSON.stringify(this.state.data));
     }
 
     componentWillMount() {
+        // load items array from localstorage
         this.setState({
             data: JSON.parse(localStorage.getItem("todo"))
         })
@@ -51,7 +74,11 @@ export default class TodoForm extends Component {
                         onChange={this.handleChange}
                     />
                     <i className="icon-plus-solid addbtn" title="Add item" onClick={this.handleSubmit}></i>
-                    <Todolist data={this.state.data} />
+                    <Todolist
+                        data={this.state.data}
+                        deleteItem={this.deleteItem.bind(this)}
+                        checkItem={this.checkItem.bind(this)}
+                    />
                 </form>
             </div>
         )
