@@ -38,17 +38,17 @@ export default class TodoForm extends Component {
     }
 
     checkItem(id) {
-        console.log(id);
-
-        var list = document.querySelector('li');
-
-        if(list.classList.add("check-active")){
-            list.classList.remove("check-active") 
-        } else{
-            list.classList.add("check-active")
+        const data = this.state.data
+        for (let i in data){
+            if(data[i].id === id){
+                data[i].completed = !data[i].completed;
+                break;
+            }
+            
+            this.setState({
+                data: data
+            })
         }
-        
-        console.log(list);
     }
 
     componentDidUpdate() {
@@ -57,7 +57,7 @@ export default class TodoForm extends Component {
     }
 
     componentWillMount() {
-        // load items array from localstorage
+        // load items array from localstorage        
         this.setState({
             data: JSON.parse(localStorage.getItem("todo"))
         })
