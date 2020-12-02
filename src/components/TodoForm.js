@@ -20,7 +20,7 @@ export default class TodoForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
-        if(this.state.term === undefined || this.state.term === ''){
+        if (this.state.term === undefined || this.state.term === '') {
             alert("You are entering a null value");
             return;
         }
@@ -32,7 +32,7 @@ export default class TodoForm extends Component {
         }
 
         this.setState({
-            data: todo
+            data: [...this.state.data, todo]
         })
     }
 
@@ -62,7 +62,8 @@ export default class TodoForm extends Component {
     }
 
     componentWillMount() {
-        // load items array from localstorage        
+        // load items array from localstorage 
+        localStorage.getItem("todo") &&
         this.setState({
             data: JSON.parse(localStorage.getItem("todo"))
         })
