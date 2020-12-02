@@ -3,8 +3,6 @@ import '../src/assets/css/style.css'
 import '../src/assets/css/App.scss';
 
 import TodoForm from './components/TodoForm';
-import Todo from './components/Todo';
-
 
 export default class App extends Component {
   constructor(props) {
@@ -19,7 +17,10 @@ export default class App extends Component {
   render() {
     return (
       <div className="Todo-app">
-        <Todo />
+        <div className="Todo">
+          <i className="icon-list"></i>
+        Todolist
+      </div>
         <TodoForm />
       </div>
     )

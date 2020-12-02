@@ -20,15 +20,20 @@ export default class TodoForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
+        if(this.state.term === undefined || this.state.term === ''){
+            alert("You are entering a null value");
+            return;
+        }
+
         const todo = {
             id: Date.now(),
             name: this.state.term,
             completed: false
         }
 
-        this.setState(state => ({
-            data: state.data.concat(todo)
-        }));
+        this.setState({
+            data: todo
+        })
     }
 
     deleteItem(id) {
@@ -39,12 +44,12 @@ export default class TodoForm extends Component {
 
     checkItem(id) {
         const data = this.state.data
-        for (let i in data){
-            if(data[i].id === id){
+        for (let i in data) {
+            if (data[i].id === id) {
                 data[i].completed = !data[i].completed;
                 break;
             }
-            
+
             this.setState({
                 data: data
             })
