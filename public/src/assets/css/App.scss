@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.Todo-app {
+    width: 100%;
+}
+
+.wrapper {
+    margin-left: 15px;
+    margin-right: 15px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.Todo {
+    margin: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 40px;
+
+    i {
+        font-size: 40px;
+        margin-right: 15px;
+    }
+}
+
+.Todo-form {
+    position: relative;
+    width: 350px;
+
+    .todo-input {
+        position: relative;
+        background-color: black;
+        color: darkgray;
+        width: 100%;
+        border-radius: 4px;
+        padding: 10px 4px;
+        margin-bottom: 20px;
+    }
+
+    .addbtn {
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 0px;
+        color: #5b5b5b;
+
+        &:hover:before {
+            color: #929292;
+            transition: 0.9s;
+        }
+    }
+}
+
+.Todo-list {
+    li {
+        list-style: none;
+        width: 100%;
+        padding: 6px;
+        background-color: #f3f3f3;
+        color: black;
+        border-radius: 4px;
+        margin: 10px 0px;
+        display: flex;
+        word-break: break-word;
+    }
+
+    .check-box {
+        border: 2px solid black;
+        width: 10px;
+        height: 10px;
+        display: block;
+        margin-right: 10px;
+    }
+
+    .check {
+        position: absolute;
+        cursor: pointer;
+        opacity: 0;
+    }
+
+    .check-active {
+        text-decoration: line-through;
+        background-color: black;
+        color: white;
+        transition: 1s;
+
+        .delete {
+            color: white !important;
+
+            &:hover {
+                color: white !important;
+            }
+        }
+
+        .check{
+            opacity: 1;
+        }
+    }
+
+    .delete {
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        color: black;
+
+        &:hover:before {
+            color: #535353;
+            transition: 0.9s;
+        }
+    }
+}
